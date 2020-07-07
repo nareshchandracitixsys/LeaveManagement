@@ -1,4 +1,5 @@
 ﻿using LeaveManagement.Data;
+using Microsoft.CodeAnalysis.Operations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,5 +9,7 @@ namespace LeaveManagement.Contracts
 {
     public interface ILeaveAllocationRepository:IRepositoryBase<LeaveAllocation>
     {
+        bool CheckAllocation(int leavetypeid, string employeeid);
+        ICollection<LeaveAllocation> GetLeaveAllocationsByEmployee(string id);
     }
 }
