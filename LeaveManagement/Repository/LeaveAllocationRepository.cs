@@ -1,6 +1,7 @@
 ﻿using LeaveManagement.Contracts;
 using LeaveManagement.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,13 +54,19 @@ namespace LeaveManagement.Repository
             return LeaveAllocation;
         }
 
-        public ICollection<LeaveAllocation> GetLeaveAllocationsByEmployee(string id)
+        public ICollection<LeaveAllocation> GetLeaveAllocationsByEmployee(string employeeId)
         {
             var period = DateTime.Now.Year;
             return FindAll()
-                .Where(q => q.EmployeeId == id && q.Period==period)
+                .Where(q => q.EmployeeId == employeeId && q.Period==period)
                 .ToList();
+        }
 
+        public LeaveAllocation GetLeaveAllocationsByEmployeeAndType(string employeeId, int leavetypeid)
+        {
+            var period = DateTime.Now.Year;
+            return FindAll()
+                .FirstOrDefault(q => q.EmployeeId == employeeId && q.Period == period && q.LeaveTypeId==leavetypeid);
         }
 
         public bool isExists(int id)

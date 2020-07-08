@@ -38,7 +38,7 @@ namespace LeaveManagement
             //Add references for Repository and Contract to stantup files
             services.AddScoped<ILeaveTypeRepository, LeaveTypeRepository>();
             services.AddScoped<ILeaveAllocationRepository, LeaveAllocationRepository>();
-            services.AddScoped<ILeaveHistoryRepository, LeaveHistoryRepository>();
+            services.AddScoped<ILeaveRequestRepository, LeaveRequestRepository>();
 
             //Adding Mappings
             services.AddAutoMapper(typeof(Maps));
