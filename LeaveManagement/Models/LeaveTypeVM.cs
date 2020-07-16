@@ -11,6 +11,7 @@ namespace LeaveManagement.Models
         
         public int Id { get; set; }
         [Required]
+        [Display(Name = "Leave Type")]
         public string Name { get; set; }
         [Required]
         [Range(1,25,ErrorMessage ="Please enter valid number")]

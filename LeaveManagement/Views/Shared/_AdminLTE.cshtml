@@ -163,38 +163,39 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Sidebar user panel (optional) -->
                 <partial name="_LoginPartial" />
                 <hr />
-                <!-- Sidebar Menu -->
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-                        with font-awesome or any other icon font library -->
-                        <li class="nav-item">
-                            <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">
-                                <i class="nav-icon fas fa-home"></i>
-                                <p>
-                                    Home
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a asp-controller="LeaveRequest" asp-action="Create" class="nav-link">
-                                <i class="nav-icon fas fa-pen-alt"></i>
-                                <p>
-                                    Apply for Leave
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a asp-area="" asp-controller="LeaveRequest" asp-action="MyLeave" class="nav-link">
-                                <i class="nav-icon fas fa-book-open"></i>
-                                <p>
-                                    My Leaves
-                                </p>
-                            </a>
-                        </li>
-                        @if (SignInManager.IsSignedIn(User))
-                        {
-                            if (User.IsInRole("Administrator"))
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <!-- Sidebar Menu -->
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            <!-- Add icons to the links using the .nav-icon class
+                            with font-awesome or any other icon font library -->
+                            <li class="nav-item">
+                                <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">
+                                    <i class="nav-icon fas fa-home"></i>
+                                    <p>
+                                        Home
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="LeaveRequest" asp-action="Create" class="nav-link">
+                                    <i class="nav-icon fas fa-pen-alt"></i>
+                                    <p>
+                                        Apply for Leave
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-area="" asp-controller="LeaveRequest" asp-action="MyLeave" class="nav-link">
+                                    <i class="nav-icon fas fa-book-open"></i>
+                                    <p>
+                                        My Leaves
+                                    </p>
+                                </a>
+                            </li>
+
+                            @if (User.IsInRole("Administrator"))
                             {
                                 <li class="nav-item has-treeview menu-open">
                                     <a href="#" class="nav-link active">
@@ -232,10 +233,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </ul>
                                 </li>
                             }
-                        }
-                    </ul>
-                </nav>
-                <!-- /.sidebar-menu -->
+
+                        </ul>
+                    </nav>
+                    <!-- /.sidebar-menu -->
+                }
             </div>
             <!-- /.sidebar -->
         </aside>
@@ -281,12 +283,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- ./wrapper -->
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="~/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="~/js/adminlte.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="~/js/jquery.dataTables.min.js"></script>
     <script src="~/js/dataTables.bootstrap4.min.js"></script>
 
